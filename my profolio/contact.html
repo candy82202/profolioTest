@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width , initial-scale=1.0" />
+    <meta name="author" content="Candy" />
+    <meta name="robots" content="inbox, follow" />
+    <meta
+      name="description"
+      content="這是Candy Lin的 Profolio, Candy Lin是來自台灣的網頁開發者"
+    />
+    <title>聯絡我們 | 前端工程師</title>
+    <!--連結字體的樣式-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="index.html">首頁</a></li>
+          <li><a href="resume.html">我的履歷</a></li>
+          <li><a class="active" href="#">聯絡方式</a></li>
+          <li><a href="#">project</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="form">
+        <form>
+          <div>
+            <label for="name">姓名</label> <input type="text" name="name" />
+          </div>
+          <br />
+          <div>
+            <label for="email">郵件</label>
+            <input type="text" name="email" />
+          </div>
+          <br />
+          <div>
+            <label for="phone">電話</label> <input type="text" name="phone" />
+          </div>
+          <br />
+          <div>
+            <label for="need">需求</label>
+            <textarea name="need" id="need" rows="10"></textarea>
+          </div>
+          <button type="submit">交出表單</button>
+        </form>
+      </section>
+      <!--div.line是指中間灰色分隔線-->
+      <div class="line"></div>
+      <section class="contact">
+        <div class="content">
+          <h2>聯絡電話:0922-222-222</h2>
+          <h2>email:candy82202@gmail.com</h2>
+          <h2>方便聯絡時間：週一至週六 8:00-19:00</h2>
+          <h2>其他聯絡方式： FB , IG</h2>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <a href="#"
+        ><img src="./icons/facebook.svg" alt="facebook" title="fb page"
+      /></a>
+      <a href="#"
+        ><img
+          src="./icons/github-brands 1.svg"
+          alt="github"
+          title="github page"
+      /></a>
+      <a href="#"
+        ><img
+          src="./icons/instagram.svg"
+          alt="instagram"
+          title="instagram page"
+      /></a>
+    </footer>
+
+    <!--這裡使用JavaScript是希望知道這些文字有多長，要到console主控台那裡知道每個字有多長，才能再去動畫的css那裏設定長度-->
+    <script src="./style/app.js"></script>
+  </body>
+</html>

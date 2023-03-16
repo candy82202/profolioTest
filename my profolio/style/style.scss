@@ -1,0 +1,240 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: "Noto Sans TC", sans-serif;
+}
+body {
+  position: relative;
+}
+
+.orange {
+  position: absolute;
+  top: -10vh;
+  right: 0;
+  z-index: -1;
+  width: 55vw;
+  height: 150vh;
+}
+
+//這邊使用nav bar呈現首頁導覽
+header {
+  nav {
+    width: 100%;
+    ul {
+      padding: 2rem;
+      //這邊的圖稿呈現約頁面7成，所以把ul使用70%的寬度，這樣就可以把ul當作一個flex box
+      width: 70%;
+      display: flex;
+      //在是flex container的情況下這樣裡面的li的標籤就可以用justify-content變成space-around或beeween
+      list-style-type: none;
+      //均匀排列每个元素，每个元素周围分配相同的空间
+      justify-content: space-around;
+      //更改navbar的字體大小
+      li {
+        font-size: 1.75rem;
+        a {
+          color: black;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+//希望可以左右並排所以display設定flex
+main {
+  display: flex;
+  flex-wrap: wrap;
+  //main設定完先設定section.left從左邊開始
+  section.left {
+    flex: 3 1 500px;
+    //讓他周遭出現留白處
+    padding: 1rem 2rem;
+
+    //設定h1的大小跟顏色
+    h1 {
+      font-size: 4rem;
+      color: #ea977d;
+    }
+    p {
+      font-size: 1.5rem;
+      //讓字跟字之間有一些距離 上下1rem 左右0rem
+      padding: 1rem 0rem;
+    }
+  }
+
+  //因為要設定縮小後照片位置，就需要設定section.right部分
+  section.right {
+    flex: 1 1 600px;
+    //要把網頁縮小後的照片設定置中
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    //跟下面的footer保持一點距離
+    margin: 1rem;
+    //再來把圖片變小
+    img {
+      border-radius: 50%;
+      width: 20vw;
+      height: 20vw;
+      position: absolute;
+      top: 55vh;
+      right: 25vw;
+      transform: translateY(-50%);
+    }
+  }
+  //這裡設定HTML第二個頁面的部分，表格部分的設定
+  section.table {
+    flex: 3 1 500px;
+    padding: 2rem;
+
+    table {
+      border-collapse: collapse;
+      tr {
+        border-bottom: 2px solid grey;
+        td {
+          padding: 1rem;
+        }
+        &:hover {
+          background-color: #d6aa9c;
+          transition: all 0.2s ease;
+        }
+      }
+    }
+  }
+  //這裡是HTML第二個頁面右側照片的設定
+  section.picture {
+    flex: 1 1 600px;
+    position: relative;
+    img {
+      width: 30vw;
+    }
+    div.orangeRect {
+      width: 30vw;
+      height: 90vh;
+      background-color: #ea977d;
+      position: absolute;
+      top: 30px;
+      left: 80px;
+      z-index: -1;
+    }
+  }
+}
+
+section.form {
+  flex: 1 1 600px;
+  form {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 1.5rem;
+    div {
+      //螢幕縮小後表格中間會全部黏再一起，需要設定分隔的距離。
+      margin: 0.5rem;
+      label {
+        font-size: 1.5rem;
+        margin-right: 1rem;
+      }
+      input,
+      textarea {
+        //設定背景顏色跟字體顏色
+        background-color: #ea977d;
+        color: white;
+        font-size: 1.25rem;
+        //設定上下距離0.5rem左右則是0.25rem
+        padding: 0.5rem 0.25rem;
+        border: none;
+        width: 80%;
+      }
+      textarea {
+        //vertical-align 屬性設置一個元素的垂直對齊方式。
+        //這個設定可以讓整個空白的表格旁邊的字，移動到表格旁的位置，現在設定是在上方。
+        vertical-align: top;
+      }
+    }
+    button {
+      align-self: center;
+      background-color: #ea977d;
+      color: white;
+      border: none;
+      cursor: pointer;
+      padding: 0.75rem 1.5rem;
+      font-size: 2rem;
+      border-radius: 10px;
+    }
+  }
+}
+div.line {
+  background-color: gray;
+  width: 3px;
+}
+section.contact {
+  flex: 1 1 500px;
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  div.content {
+    h2 {
+      margin: 1rem 0rem;
+    }
+  }
+}
+//把下面的icon距離隔開
+footer {
+  a {
+    padding: 1rem;
+  }
+}
+
+//navbar的首頁兩個字更改顏色
+.active {
+  color: #ea977d;
+}
+
+//max-width設定1100是因為flex部分section left是500 right是600的加總
+@media screen and (max-width: 1100px) {
+  .orange {
+    opacity: 0.5;
+  }
+  header {
+    nav {
+      ul {
+        //這裡表示如果畫面縮小就會讓navbar的排列從橫的變直的
+        flex-direction: column;
+        width: 100%;
+        li {
+          //讓navbar字體間上下有1rem距離，左右就不需要距離
+          padding: 1rem 0rem;
+          //讓下邊框產生灰色實體2px粗細的線當底線
+          border-bottom: 2px grey solid;
+        }
+      }
+    }
+  }
+  main {
+    section.right {
+      img {
+        //照片的位置改成靜態的
+        position: static;
+        transform: none;
+        width: 50vw;
+        height: 50vw;
+      }
+    }
+    section.picture {
+      //這裡調整螢幕縮小之後 照片的大小跟位置，先置中
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      //這裡調整照片的大小
+      img {
+        width: 40vw;
+      }
+      div.orangeRect {
+        //可以設定螢幕縮小之後在這裡打上none，這樣後面橘色的就會直接不見
+        display: none;
+      }
+    }
+  }
+}
